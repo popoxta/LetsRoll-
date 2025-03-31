@@ -2,7 +2,7 @@ Feature: Calculator
 
 Simple calculator for adding two numbers
 
-@template
+@calculator
 Scenario: Add two numbers
 	Given the first number is 50
 	And the second number is 70
