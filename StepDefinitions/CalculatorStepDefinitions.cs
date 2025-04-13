@@ -7,31 +7,31 @@ namespace LetsRoll.StepDefinitions;
 [Binding]
 public sealed class CalculatorStepDefinitions
 {
-    private int FirstNumber;
-    private int SecondNumber;
+    private int _firstNumber;
+    private int _secondNumber;
 
 
     [Given("the first number is {int}")]
-    public void GivenTheFirstNumberIs(int number)
+    public void GivenTheFirstNumberIsInt(int number)
     {
-        FirstNumber = number;
+        _firstNumber = number;
     }
 
     [Given("the second number is {int}")]
-    public void GivenTheSecondNumberIs(int number)
+    public void GivenTheSecondNumberIsInt(int number)
     {
-        SecondNumber = number;
+        _secondNumber = number;
     }
 
     [When("the two numbers are added")]
     public void WhenTheTwoNumbersAreAdded()
     {
-        Console.WriteLine($"Adding numbers {FirstNumber} & {SecondNumber}");
+        Console.WriteLine($"Adding numbers {_firstNumber} & {_secondNumber}");
     }
 
     [Then("the result should be {int}")]
-    public void ThenTheResultShouldBe(int result)
+    public void ThenTheResultShouldBeInt(int result)
     {
-        Assert.That(FirstNumber + SecondNumber, Is.EqualTo(result));
+        Assert.That(_firstNumber + _secondNumber, Is.EqualTo(result));
     }
 }
