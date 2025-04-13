@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 
-namespace LetsRoll;
+namespace LetsRoll.Setup;
 
 internal enum BrowserTypes
 {
@@ -23,10 +23,13 @@ public class BrowserFactory
         { "safari", BrowserTypes.Safari },
     };
 
-    public IWebDriver Browser { get; private set; }
+    public IWebDriver Browser;
+
+    public BrowserFactory(string browserType, List<string> options = null) =>
+        SetBrowserConfiguration(browserType, options);
 
 
-    private void GetBrowserConfiguration(string browserType, List<string> options = null)
+    private void SetBrowserConfiguration(string browserType, List<string> options = null)
     {
         var browser = _browserNames[browserType.ToLower()];
         Browser = browser switch
